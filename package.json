@@ -1,0 +1,91 @@
+{
+  "name": "comiru-admin-plus-goto",
+  "displayName": "comiru-admin-plus-goto",
+  "description": "comiru-admin-plus-goto",
+  "version": "0.0.1",
+  "publisher": "sorry510",
+  "engines": {
+    "vscode": "^1.51.0"
+  },
+  "icon": "images/icon.png",
+  "repository": "https://github.com/sorry510/vscode-comiru-admin-plus-goto.git",
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:php",
+    "onLanguage:blade",
+    "onLanguage:html",
+    "onUri",
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "goto configuration",
+      "properties": {
+        "comiru_admin_plus_goto.maxLinesCount": {
+          "type": "integer",
+          "default": 3000,
+          "description": "Maximum number of scanning rows"
+        },
+        "comiru_admin_plus_goto.pathOpenapi": {
+          "type": "string",
+          "default": "/app/Http/Controllers/Plus/Dto,/app/Services/Api/Annotation",
+          "description": "comiruAdminPlus Root path to the openapi folder"
+        },
+        "comiru_admin_plus_goto.whiteMap": {
+          "type": "object",
+          "default": {
+            "message.200": "/app/Services/Api/Annotation/ResponseMessage.php",
+            "message.400": "/app/Services/Api/Annotation/ResponseMessage.php",
+            "message.401": "/app/Services/Api/Annotation/ResponseMessage.php",
+            "message.403": "/app/Services/Api/Annotation/ResponseMessage.php",
+            "message.404": "/app/Services/Api/Annotation/ResponseMessage.php",
+            "message.405": "/app/Services/Api/Annotation/ResponseMessage.php",
+            "message.410": "/app/Services/Api/Annotation/ResponseMessage.php",
+            "message.422": "/app/Services/Api/Annotation/ResponseMessage.php",
+            "message.429": "/app/Services/Api/Annotation/ResponseMessage.php",
+            "message.500": "/app/Services/Api/Annotation/ResponseMessage.php",
+            "page.meta": "/app/Services/Api/Annotation/ResponsePage.php",
+            "page.links": "/app/Services/Api/Annotation/ResponsePage.php",
+            "Authorization": "/app/Http/Controllers/Plus/Dto/Request/Authorization.php",
+            "page": "/app/Http/Controllers/Plus/Dto/Request/Parameters/QueryParams.php",
+            "pagesize": "/app/Http/Controllers/Plus/Dto/Request/Parameters/QueryParams.php",
+            "order_by": "/app/Http/Controllers/Plus/Dto/Request/Parameters/QueryParams.php",
+            "keyword": "/app/Http/Controllers/Plus/Dto/Request/Parameters/QueryParams.php",
+            "refresh_token": "/app/Http/Controllers/Plus/Dto/Request/Parameters/QueryParams.php",
+            "request.auth.body": "/app/Http/Controllers/Plus/Dto/Request/Body/RequestAuthBody.php"
+          },
+          "description": "comiruAdminPlus Root path to the openapi folder"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.2.0",
+    "@types/mocha": "^9.1.1",
+    "@types/n-readlines": "^1.0.3",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.51.0",
+    "@typescript-eslint/eslint-plugin": "^5.31.0",
+    "@typescript-eslint/parser": "^5.31.0",
+    "@vscode/test-electron": "^2.1.5",
+    "eslint": "^8.20.0",
+    "glob": "^8.0.3",
+    "mocha": "^10.0.0",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "n-readlines": "^1.0.1"
+  }
+}
